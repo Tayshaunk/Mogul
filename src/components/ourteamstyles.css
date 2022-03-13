@@ -24,6 +24,15 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 60%;
+  max-height: 60%;
+  border-radius: 25px;
+}
+.crownM {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  max-height: 28%;
   border-radius: 25px;
 }
 .gem {
@@ -109,6 +118,7 @@ p {
 .names {
   color: white;
   text-align: center;
+  margin-top: 5%;
 }
 .names:hover {
   color: #6ab8f8;

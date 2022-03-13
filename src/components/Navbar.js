@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./NavbarStyles.css";
+import Wallet from "./wallet";
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
@@ -31,9 +32,7 @@ const Navbar = () => {
           <Link to="/About">About</Link>
         </li>
         <li>
-          <Link to="/play" className="play">
-            Play Now
-          </Link>
+          <Wallet />
         </li>
       </ul>
       <div className="hamburger" onClick={handleClick}>
