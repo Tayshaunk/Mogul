@@ -1,138 +1,143 @@
-import React from 'react';
+import React from "react";
 
-import {
-	Scene, 
-	SceneButton
-} from './Scene.js';
-import {
-//	StyledContainer, 
+import { Scene, SceneButton } from "./Scene.js";
+import //	StyledContainer,
 //	Container
-} from './Container.js';
+"./Container.js";
+import //	GameContainer
+"./GameContainer.js";
 import {
-//	GameContainer
-} from './GameContainer.js';
-import {
-//	GameFullText, 
-	GameText, 
-//	GameButton, 
-//	GameTitle, 
-//	GameCheckbox, 
-	GameInput, 
-	GameSelect,
-//	GameImage
-} from './GameMisc';
-import {
-//	ButtonsContainer
-} from './ButtonsContainer.js';
-import {
-//	PlayerContainer
-} from './PlayerContainer.js';
-import {
-//	SituationalContainer
-} from './SituationalContainer.js';
-
-
+  //	GameFullText,
+  GameText,
+  //	GameButton,
+  //	GameTitle,
+  //	GameCheckbox,
+  GameInput,
+  GameSelect,
+  //	GameImage
+} from "./GameMisc";
+import //	ButtonsContainer
+"./ButtonsContainer.js";
+import //	PlayerContainer
+"./PlayerContainer.js";
+import //	SituationalContainer
+"./SituationalContainer.js";
 
 export var Scenes = {
-	characterSelection: new Scene('Name Selection', (game) => {
-		return ['react', (<div>
-			<GameText 
-				text="Choose:"
-			/>
-			<GameInput
-				onChange={(event, text) => game.setPlayer({
-					name: text
-				})}
-				value={game.Player.name}
-				text="Name"
-			/>
-			<GameSelect
-				options={[
-					"male",
-					"female"
-				]}
-				onChange={(event, value) => game.setPlayer({
-					gender: value
-				})}
-				text="Gender"
-			/>
-		</div>)];
-	}, [
-		new SceneButton('Confirm', (game) => {
-			game.gotoScene(Scenes.Osli_LivingDistrict_PlayerHome_FrontRoom);
-		})
-	]),
+  characterSelection: new Scene(
+    "Name Selection",
+    (game) => {
+      return [
+        "react",
+        <div>
+          <GameText text="Choose:" />
+          <GameInput
+            onChange={(event, text) =>
+              game.setPlayer({
+                name: text,
+              })
+            }
+            value={game.Player.name}
+            text="Name"
+          />
+          <GameSelect
+            options={["male", "female"]}
+            onChange={(event, value) =>
+              game.setPlayer({
+                gender: value,
+              })
+            }
+            text="Gender"
+          />
+        </div>,
+      ];
+    },
+    [
+      new SceneButton("Confirm", (game) => {
+        game.gotoScene(Scenes.IntroScreen);
+      }),
+    ]
+  ),
 
+  //intro scene
+  IntroScreen: new Scene(
+    "Lets get started!",
+    (game) => {
+      let text =
+        "Hello! I am marus your new business advisor. I will be here to help and guide you through the basics of creating your company. Let's not waste any time, let's pick the type of business you would like to start! Keep in mind though each business type has its own positive and negative effects!";
 
-	// ============== OSLI
+      return text;
+    },
+    [
+      new SceneButton("sole Proprietorship", (game) => {
+        game.gotoScene(Scenes.Sole_Proprietorship);
+      }),
+      new SceneButton("LLC (Limited Liability Company)", (game) => {
+        game.gotoScene(Scenes.limited_Liability_Company);
+      }),
+      new SceneButton("Corporation", (game) => {
+        game.gotoScene(Scenes.Corporation);
+      }),
+      new SceneButton("None Profit", (game) => {
+        game.gotoScene(Scenes.Non_Profit);
+      }),
+    ]
+  ),
 
-	// ==== Osli Center
-	
-	Osli_Center: new Scene('Osli: Center', (game) => {
-		let text = "You are in the main travel part of town.";
+  Sole_Proprietorship: new Scene(
+    "Sole Proprietorship",
+    (game) => {
+      let text =
+        "Great Choice! Sole Proprietorships are great for all starting businesses. although one downside of sole Proprietorships is that they have less starting funds , in this case you've been awarded $10000 in starting funds.";
 
-		text += '\nThe gates on the wooden palisade walls are open and people mill about.';
+      return text;
+    },
+    [
+      new SceneButton("that'll be enough to get us started!", (game) => {
+        game.gotoScene(Scenes.Sole_Proprietorship_Hiring);
+      }),
+      new SceneButton(
+        "I need more money! Lets take out a bank loan.",
+        (game) => {
+          game.gotoScene(Scenes.Sole_Proprietorship_Loan);
+        }
+      ),
+    ]
+  ),
+  Sole_Proprietorship_Loan: new Scene(
+    "Bank Loan",
+    (game) => {
+      let text =
+        "Im scared of this place... but we have to get this done, there are a number of different loans we can get becareful though these bankers like to pull fast ones";
+      return text;
+    },
+    [
+      new SceneButton("Large Loan", (game) => {
+        game.gotoScene(Scenes.Sole_Proprietorship_Hiring);
+      }),
+    ]
+  ),
 
-		text += '\nYou can see the way to the Shopping District and the Living District.';
+  //Sole Proprietorship Hiring
+  Sole_Proprietorship_Hiring: new Scene(
+    "Hiring!",
+    (game) => {
+      let text =
+        "A huge part of business is the team around it! lets hire some employess to help make your job easier! first up lets hire someone to handle our social media presence!";
 
-		return text;
-	}, [
-		new SceneButton('Head to Shopping District', (game) => {
-			game.gotoScene(Scenes.Osli_ShoppingDistrict);
-		}),
-		new SceneButton('Head to Living District', (game) => {
-			game.gotoScene(Scenes.Osli_LivingDistrict);
-		})
-	]),
-
-	// ==== Osli living district
-	Osli_LivingDistrict: new Scene ('Osli: Living District', (game) => {
-		let text = 'A long circle of houses with smaller circles of houses inside larger circles. Each circle had two roads leading out.';
-		return text;
-	}, [
-		new SceneButton('Head to Osli Center.', (game) => {
-			game.gotoScene(Scenes.Osli_Center);
-		}),
-		new SceneButton('Your House', (game) => {
-			game.gotoScene(Scenes.Osli_LivingDistrict_PlayerHome_FrontRoom);
-		})
-	], [['img', './OsliLivingDistrict.png']]),
-	Osli_LivingDistrict_PlayerHome_FrontRoom: new Scene('Osli: Your Home, Front Room', (game) => {
-		let text = 'A small two-room cottage where you lived with your mother until she died of Bonerot.';
-		text += '\nThe front room has a wood-stove and a small circular table with two chairs positioned around around it. A painting of you, your mother and your father is positoned on the wall. You have a small enchanted fridge to keep your food cold.';
-
-		return text;
-	}, [
-		new SceneButton('Go to Bedroom', (game) => {
-			game.gotoScene(Scenes.Osli_LivingDistrict_PlayerHome_Bedroom);
-		}),
-		new SceneButton('Go outside', (game) => {
-			game.gotoScene(Scenes.Osli_LivingDistrict);
-		})
-	]),
-	Osli_LivingDistrict_PlayerHome_Bedroom: new Scene('Osli: Your Home, Bedroom', (game) => {
-		let text = 'In the bedroom you have two beds, a larger one which your mother used to sleep on and a smaller one you sleep in.';
-
-		return text;
-	}, [
-		new SceneButton('Go to the Front Room', (game) => {
-			game.gotoScene(Scenes.Osli_LivingDistrict_PlayerHome_FrontRoom);
-		})
-	]),
-
-	// ==== Osli shopping district
-
-	Osli_ShoppingDistrict: new Scene('Osli: Shopping District', (game) => {
-		let text = "You stand at the entrance to the small shopping district here in Osli.";
-		
-		text += '\nIt has a curving road with shops attempting to sell their goods to you and other people.';
-
-		return text;
-	}, [
-		new SceneButton('Head to Osli Center', (game) => {
-			game.gotoScene(Scenes.Osli_Center);
-		})
-	])
-
-	
+      return text;
+    },
+    [
+      //list of employess names to be changed
+      new SceneButton("Low Skill high potential", (game) => {
+        game.gotoScene(Scenes.Sole_Proprietorship);
+      }),
+      new SceneButton("Medium skill medium potential", (game) => {
+        game.gotoScene(Scenes.limited_Liability_Company);
+      }),
+      new SceneButton("High skill high potential", (game) => {
+        game.gotoScene(Scenes.Corporation);
+      }),
+    ]
+  ),
 };
