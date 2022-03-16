@@ -20,7 +20,7 @@ const Video = () => {
           {/* <Link to="/signup" className="btn">
             SignUp
           </Link> */}
-          <Link to="/playnow" className="btn btn-light">
+          <Link to="/play" className="btn btn-light">
             Play Now
           </Link>
         </div>
