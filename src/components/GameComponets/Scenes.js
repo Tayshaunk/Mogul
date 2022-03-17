@@ -104,6 +104,8 @@ export var Scenes = {
       ),
     ]
   ),
+
+  //Section for if the user decides to take out a bank loan
   Sole_Proprietorship_Loan: new Scene(
     "Bank Loan",
     (game) => {
@@ -118,7 +120,7 @@ export var Scenes = {
     ]
   ),
 
-  //Sole Proprietorship Hiring
+  // Hiring section
   Sole_Proprietorship_Hiring: new Scene(
     "Hiring!",
     (game) => {

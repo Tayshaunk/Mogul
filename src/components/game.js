@@ -24,7 +24,6 @@ import { ButtonsContainer } from "./GameComponets/ButtonsContainer.js";
 import { PlayerContainer } from "./GameComponets/PlayerContainer.js";
 import { SituationalContainer } from "./GameComponets/SituationalContainer.js";
 import Modal from "react-modal";
-import { DropdownMenu } from "./GameComponets/DropDown.js";
 
 class Game extends React.Component {
   //OTHER

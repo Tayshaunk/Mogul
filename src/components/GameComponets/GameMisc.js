@@ -7,9 +7,9 @@ import {
 //	StyledContainer, 
 	Container
 } from './Container.js';
-import {
-	DropdownMenu
-} from './DropDown.js';
+// import {
+// 	DropdownMenu
+// } from './DropDown.js';
 
 export class GameFullText extends React.Component {
 	render () {
@@ -191,7 +191,7 @@ export class GameItem extends React.Component {
 		return (<div
 			className="game-item"
 		>
-			<h3>{this.props.item.getName(this.props.game)}<DropdownMenu 
+			{/* <h3>{this.props.item.getName(this.props.game)}<DropdownMenu 
 				style={{
 					display: 'inline',
 					marginLeft: "5%"
@@ -225,7 +225,7 @@ export class GameItem extends React.Component {
 						show: !!this.props.item.equipped && !!this.props.item.equipType
 					}
 				]}
-			/></h3>
+			/></h3> */}
 			<p>{this.props.item.getDescription(this.props.game)}</p>
 		</div>);
 	}
