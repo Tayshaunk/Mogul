@@ -15,8 +15,8 @@ import {
 	GameSelect,
 	GameItem
 } from './GameMisc';
-// import {ButtonsContainer} from './ButtonsContainer.js';
-// import {PlayerContainer} from './PlayerContainer.js';
+import {ButtonsContainer} from './ButtonsContainer.js';
+import {PlayerContainer} from './PlayerContainer.js';
 
 export class SituationalContainer extends React.Component {
 	constructor (props) {

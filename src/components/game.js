@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 import moment from "moment";
 // import "./index.css";
 
-import { Item, UsableItem, Weapon } from "./GameComponets/Item";
-import { Items } from "./GameComponets/Items";
+// import { Item, UsableItem, Weapon } from "./GameComponets/Item";
+// import { Items } from "./GameComponets/Items";
 import { Scene, SceneButton } from "./GameComponets/Scene.js";
 import { Scenes } from "./GameComponets/Scenes.js";
 import { StyledContainer, Container } from "./GameComponets/Container.js";
@@ -22,7 +22,6 @@ import {
 } from "./GameComponets/GameMisc";
 import { ButtonsContainer } from "./GameComponets/ButtonsContainer.js";
 import { PlayerContainer } from "./GameComponets/PlayerContainer.js";
-import { SituationalContainer } from "./GameComponets/SituationalContainer.js";
 import Modal from "react-modal";
 
 class Game extends React.Component {
@@ -50,7 +49,6 @@ class Game extends React.Component {
       currentTime: moment().year(600).month(0).date(1).hour(9).minute(0),
     };
     this.Scenes = Scenes;
-    this.Items = Items;
   }
 
   // TIME
@@ -92,63 +90,63 @@ class Game extends React.Component {
     return equips;
   }
 
-  equipItem(id, game) {
-    let equips = this.getEquipped();
-    this.setPlayer((prevState, props) => {
-      let inventory = prevState.Player.inventory.slice();
-      let item = inventory[this.getPlayerItemByID(inventory, id)];
+  // equipItem(id, game) {
+  //   let equips = this.getEquipped();
+  //   this.setPlayer((prevState, props) => {
+  //     let inventory = prevState.Player.inventory.slice();
+  //     let item = inventory[this.getPlayerItemByID(inventory, id)];
 
-      if (item === undefined) {
-        throw new Error("Item with the id, " + id + " does not exist");
-      }
+  //     if (item === undefined) {
+  //       throw new Error("Item with the id, " + id + " does not exist");
+  //     }
 
-      if (equips[item.equipType] !== undefined) {
-        if (
-          equips[item.equipType].length <
-          prevState.Player.equipNumbers[item.equipType]
-        ) {
-          item.equipped = true;
-          item.onEquip(game);
-        }
-      } else {
-        throw new Error(
-          'Item by the name,"' + item.name + '" equipType is undefined.'
-        );
-      }
+  //     if (equips[item.equipType] !== undefined) {
+  //       if (
+  //         equips[item.equipType].length <
+  //         prevState.Player.equipNumbers[item.equipType]
+  //       ) {
+  //         item.equipped = true;
+  //         item.onEquip(game);
+  //       }
+  //     } else {
+  //       throw new Error(
+  //         'Item by the name,"' + item.name + '" equipType is undefined.'
+  //       );
+  //     }
 
-      return { inventory };
-    });
-  }
+  //     return { inventory };
+  //   });
+  // }
 
-  unEquipItem(id, game) {
-    this.setPlayer((prevState, props) => {
-      let inventory = prevState.Player.inventory.slice();
-      let item = inventory[this.getPlayerItemByID(inventory, id)];
+  // unEquipItem(id, game) {
+  //   this.setPlayer((prevState, props) => {
+  //     let inventory = prevState.Player.inventory.slice();
+  //     let item = inventory[this.getPlayerItemByID(inventory, id)];
 
-      if (item === undefined) {
-        throw new Error("Item with the id, " + id + " does not exist");
-      }
+  //     if (item === undefined) {
+  //       throw new Error("Item with the id, " + id + " does not exist");
+  //     }
 
-      if (item.equipped) {
-        item.equipped = false;
-        item.onUnEquip(game);
-      } else {
-        alert("You cannot unequip that.");
-      }
+  //     if (item.equipped) {
+  //       item.equipped = false;
+  //       item.onUnEquip(game);
+  //     } else {
+  //       alert("You cannot unequip that.");
+  //     }
 
-      return { inventory };
-    });
-  }
+  //     return { inventory };
+  //   });
+  // }
 
-  getPlayerItemByID(inventory, id) {
-    for (let i = 0; i < inventory.length; i++) {
-      if (inventory[i].id === id) {
-        return i;
-      }
-    }
+  // getPlayerItemByID(inventory, id) {
+  //   for (let i = 0; i < inventory.length; i++) {
+  //     if (inventory[i].id === id) {
+  //       return i;
+  //     }
+  //   }
 
-    return false;
-  }
+  //   return false;
+  // }
 
   setPlayer(newPlayer) {
     if (typeof newPlayer === "function") {
@@ -164,65 +162,65 @@ class Game extends React.Component {
     }
   }
 
-  givePlayerItem(item, noClone) {
-    this.setPlayer((prevState, props) => {
-      let prevInv = prevState.Player.inventory.slice(),
-        itemID = prevState.Player.itemID;
-      if (!!noClone) {
-        if (item.constructor === Array) {
-          for (let i = 0; i < item[1]; i++) {
-            prevInv.push(item[0]);
-          }
-        } else {
-          prevInv.push(item);
-        }
-      } else {
-        if (item.constructor === Array) {
-          for (let i = 0; i < item[1]; i++) {
-            let newItem = item[0].clone();
-            newItem.id = itemID++;
-            prevInv.push(newItem);
-          }
-        } else {
-          let newItem = item.clone();
-          newItem.id = itemID++;
-          prevInv.push(newItem);
-        }
-      }
+  // givePlayerItem(item, noClone) {
+  //   this.setPlayer((prevState, props) => {
+  //     let prevInv = prevState.Player.inventory.slice(),
+  //       itemID = prevState.Player.itemID;
+  //     if (!!noClone) {
+  //       if (item.constructor === Array) {
+  //         for (let i = 0; i < item[1]; i++) {
+  //           prevInv.push(item[0]);
+  //         }
+  //       } else {
+  //         prevInv.push(item);
+  //       }
+  //     } else {
+  //       if (item.constructor === Array) {
+  //         for (let i = 0; i < item[1]; i++) {
+  //           let newItem = item[0].clone();
+  //           newItem.id = itemID++;
+  //           prevInv.push(newItem);
+  //         }
+  //       } else {
+  //         let newItem = item.clone();
+  //         newItem.id = itemID++;
+  //         prevInv.push(newItem);
+  //       }
+  //     }
 
-      return {
-        inventory: prevInv,
-        itemID,
-      };
-    });
-    return true;
-  }
+  //     return {
+  //       inventory: prevInv,
+  //       itemID,
+  //     };
+  //   });
+  //   return true;
+  // }
 
-  takePlayerItem(item) {
-    this.setPlayer((prevState, props) => {
-      let prevInv = prevState.Player.inventory.slice();
-      if (typeof item === "number") {
-        for (let i = 0; i < prevInv.length; i++) {
-          if (prevInv[i].id === item) {
-            prevInv.splice(i, 1);
-            break;
-          }
-        }
-      } else {
-        for (let i = 0; i < prevInv.length; i++) {
-          if (prevInv[i] === item) {
-            prevInv.splice(i, 1);
-            i = prevInv.length;
-            break;
-          }
-        }
-      }
-      return {
-        inventory: prevInv,
-      };
-    });
-    return true;
-  }
+  // takePlayerItem(item) {
+  //   this.setPlayer((prevState, props) => {
+  //     let prevInv = prevState.Player.inventory.slice();
+  //     if (typeof item === "number") {
+  //       for (let i = 0; i < prevInv.length; i++) {
+  //         if (prevInv[i].id === item) {
+  //           prevInv.splice(i, 1);
+  //           break;
+  //         }
+  //       }
+  //     } else {
+  //       for (let i = 0; i < prevInv.length; i++) {
+  //         if (prevInv[i] === item) {
+  //           prevInv.splice(i, 1);
+  //           i = prevInv.length;
+  //           break;
+  //         }
+  //       }
+  //     }
+  //     return {
+  //       inventory: prevInv,
+  //     };
+  //   });
+  //   return true;
+  // }
 
   subtractPlayerHealth(amount) {
     this.setPlayer((prevState, props) => {
@@ -305,9 +303,6 @@ class Game extends React.Component {
   //REACT, not the constructor tho
   componentDidMount() {
     this.gotoScene(this.Scenes.characterSelection);
-    this.givePlayerItem([Items.Bread, 3]);
-    this.givePlayerItem([Items.WoodenSword, 2]);
-    this.givePlayerItem([Items.OldCoin, 4]);
   }
 
   render() {
@@ -315,18 +310,18 @@ class Game extends React.Component {
       //State
       state: this.state,
       setState: this.setState.bind(this),
-      //Player
-      Player: this.state.Player,
-      setPlayer: this.setPlayer.bind(this),
-      subtractPlayerHealth: this.subtractPlayerHealth.bind(this),
-      addPlayerHealth: this.addPlayerHealth.bind(this),
-      setPlayerHealth: this.setPlayerHealth.bind(this),
-      givePlayerItem: this.givePlayerItem.bind(this),
-      takePlayerItem: this.takePlayerItem.bind(this),
-      getEquipped: this.getEquipped.bind(this),
-      equipItem: this.equipItem.bind(this),
-      unEquipItem: this.unEquipItem.bind(this),
-      getPlayerItemByID: this.getPlayerItemByID.bind(this),
+      // //Player
+      // Player: this.state.Player,
+      // setPlayer: this.setPlayer.bind(this),
+      // subtractPlayerHealth: this.subtractPlayerHealth.bind(this),
+      // addPlayerHealth: this.addPlayerHealth.bind(this),
+      // setPlayerHealth: this.setPlayerHealth.bind(this),
+      // givePlayerItem: this.givePlayerItem.bind(this),
+      // takePlayerItem: this.takePlayerItem.bind(this),
+      // getEquipped: this.getEquipped.bind(this),
+      // equipItem: this.equipItem.bind(this),
+      // unEquipItem: this.unEquipItem.bind(this),
+      // getPlayerItemByID: this.getPlayerItemByID.bind(this),
       //Scenes
       Scenes: this.Scenes,
       gotoScene: this.gotoScene.bind(this),
@@ -339,7 +334,6 @@ class Game extends React.Component {
       <div>
         <GameContainer game={game} />
         {/* <PlayerContainer game={game} /> */}
-        {/* <SituationalContainer game={game} /> */}
       </div>
     );
   }

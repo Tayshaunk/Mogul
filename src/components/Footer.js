@@ -20,11 +20,11 @@ const Footer = () => {
               style={{ color: "#ffffff", marginRight: "2rem" }}
             />
             <div>
-              <p>123 Acme St.</p>
-              <h4>Houston, Tx</h4>
+              {/* <p>123 Acme St.</p> */}
+              <h4>Los Angeles Based Company</h4>
             </div>
           </div>
-          <div className="phone">
+          {/* <div className="phone">
             <h4>
               <FaPhone
                 size={20}
@@ -32,7 +32,7 @@ const Footer = () => {
               />{" "}
               1-800-123-1234
             </h4>
-          </div>
+          </div> */}
           <div className="email">
             <h4>
               <FaMailBulk
@@ -44,11 +44,9 @@ const Footer = () => {
           </div>
         </div>
         <div className="right">
-          <h4>About the company</h4>
+          <h4>Mogul</h4>
           <p>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam"
+            "Mogul is game under the keep moving ahead network and has been established in 2022"
           </p>
           <div className="social">
             <FaFacebook

@@ -37,18 +37,9 @@ export var Scenes = {
                 name: text,
               })
             }
-            value={game.Player.name}
             text="Name"
           />
-          <GameSelect
-            options={["male", "female"]}
-            onChange={(event, value) =>
-              game.setPlayer({
-                gender: value,
-              })
-            }
-            text="Gender"
-          />
+          
         </div>,
       ];
     },

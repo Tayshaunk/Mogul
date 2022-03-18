@@ -185,7 +185,7 @@ export class GameImage extends React.Component {
 }
 
 
-//<span className="close-button" aria-label="Delete Item" title="Delete Item">&times;</span>
+{/* <span className="close-button" aria-label="Delete Item" title="Delete Item">&times;</span> */}
 export class GameItem extends React.Component {
 	render () {
 		return (<div
