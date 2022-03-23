@@ -1,0 +1,129 @@
+/* .teampicture {
+  float: left;
+  width: 45%;
+  height: 45%;
+  margin-top: 30px;
+} */
+
+body {
+  background-color: rgb(19, 14, 14);
+  /* font-family: "Press Start 2P", "sans-serif"; */
+}
+.Maintitle {
+  color: rgb(255, 255, 255);
+  /* font-family: "Press Start 2P", cursive; */
+}
+.gamePara {
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+  font-size: large;
+}
+.crown {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  max-height: 60%;
+  border-radius: 25px;
+}
+.crownM {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  max-height: 28%;
+  border-radius: 25px;
+}
+.gem {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  padding-bottom: 30px;
+}
+hr {
+  color: white;
+  text-align: center;
+}
+/*HEADER*/
+header::before {
+  height: 100vh;
+  background-color: #000000;
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.5;
+}
+header {
+  height: 100vh;
+  width: 100%;
+  color: #ffffff;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-image: url("../../../src/assets/castles.png"); */
+
+  text-align: center;
+  /* font-family: "Press Start 2P", "sans-serif"; */
+}
+header div {
+  position: relative;
+  text-align: center;
+}
+header h1 {
+  font-size: 100px;
+  /* font-family: "Press Start 2P", "sans-serif"; */
+}
+.bigblue {
+  color: white;
+  padding: 40px;
+  font-family: "Exo", sans-serif;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 550;
+}
+.smallblue {
+  color: #fee31c;
+  padding: 40px;
+  font-family: "Exo", sans-serif;
+  text-align: left;
+}
+p {
+  font-family: "Exo", sans-serif;
+  color: white;
+}
+.team-section {
+  background-image: linear-gradient(#3f51b5, #1a237e);
+  background-repeat: no-repeat;
+  color: #000;
+  overflow-x: hidden;
+}
+.team-grid p {
+  color: #fff;
+}
+.team-grid h2 {
+  font-weight: bold;
+  margin-bottom: 40px;
+  padding-top: 40px;
+  color: #fff;
+}
+.names {
+  color: white;
+  text-align: center;
+  margin-top: 5%;
+}
+.names:hover {
+  color: #6ab8f8;
+}
+
+.underline1{
+  margin-top: -30px;
+}

@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Minter from "../components/minter";
+import Navbar from "../components/LandingPage/NavBar/Navbar";
+
 const About = () => {
   return (
     <div>
       {/* <Navbar /> */}
-      <Minter />
+      
     </div>
   );
 };

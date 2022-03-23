@@ -1,15 +1,10 @@
-/*global confirm*/
-/*eslint no-restricted-globals: ["warn", confirm"]*/
-// ^ because bloody hell I want my bloody confirm box. I don't need to finangle with a bloody modal right now
-
-import React from 'react';
+import React from "react";
+import "../GameComponets/GameStyles/GameStyles.css"
 import {
 //	StyledContainer, 
 	Container
 } from './Container.js';
-// import {
-// 	DropdownMenu
-// } from './DropDown.js';
+
 
 export class GameFullText extends React.Component {
 	render () {
@@ -57,7 +52,7 @@ export class GameFullText extends React.Component {
 
 export class GameButton extends React.Component {
 	render () {
-		return (<div 
+		return ( <div 
 			className="game-button" 
 			onClick={this.props.onClick}
 		>{this.props.text}</div>);
@@ -165,15 +160,7 @@ export class GameSelect extends React.Component {
 
 
 
-export class CurrentTime extends React.Component {
-	render () {
-		return (<div>
-			<GameText
-				text={(this.props.beforeText || '') + this.props.game.getReadableTime() + (this.props.afterText || '')}
-			/>
-		</div>);
-	}
-}
+
 
 export class GameImage extends React.Component {
 	render () {
@@ -185,47 +172,12 @@ export class GameImage extends React.Component {
 }
 
 
-{/* <span className="close-button" aria-label="Delete Item" title="Delete Item">&times;</span> */}
 export class GameItem extends React.Component {
 	render () {
 		return (<div
 			className="game-item"
 		>
-			{/* <h3>{this.props.item.getName(this.props.game)}<DropdownMenu 
-				style={{
-					display: 'inline',
-					marginLeft: "5%"
-				}} 
-				options={[
-					{
-						text: 'Throw Away',
-						onClick: () => {
-							if(confirm('Are you sure you want to throw away your ' + this.props.item.name + '?')){
-								this.props.game.takePlayerItem(this.props.item);
-							}
-						},
-					},
-					{
-						text: 'Use',
-						onClick: () => alert('Use Option clicked!'),
-						show: this.props.item.type.includes('usable-item')
-					},
-					{
-						text: 'Equip',
-						onClick: () => {
-							this.props.game.equipItem(this.props.item.id, this.props.game);
-						},
-						show: !this.props.item.equipped && !!this.props.item.equipType
-					},
-					{
-						text: 'Un-Equip',
-						onClick: () => {
-							this.props.game.unEquipItem(this.props.item.id, this.props.game);
-						},
-						show: !!this.props.item.equipped && !!this.props.item.equipType
-					}
-				]}
-			/></h3> */}
+			
 			<p>{this.props.item.getDescription(this.props.game)}</p>
 		</div>);
 	}

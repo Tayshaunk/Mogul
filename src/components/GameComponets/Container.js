@@ -1,12 +1,5 @@
 import React from 'react';
-
-export class StyledContainer extends React.Component {
-	render () {
-		return (<Container id={this.props.id} className={'styled-container ' + (this.props.className || '')}>
-			{this.props.children}
-		</Container>);
-	}
-}
+import "./GameStyles/GameStyles.css";
 
 export class Container extends React.Component {
 	render () {
@@ -19,11 +12,10 @@ export class Container extends React.Component {
 		>{this.props.children}
 		</div>);
 	}
+	
 }
 
 
 
-////////////////////////////////////////////////////////
-////////////
-////////////////////////////////////////////////////////
+
 

@@ -1,4 +1,4 @@
-import Game from "../components/game";
+import Game from "../components/GameComponets/game";
 const GamePage = () => {
   return (
     <div>

@@ -1,7 +1,6 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Minter from "../components/minter";
-import ConnectMetaMaskSection from "../components/ConnectWalletPage";
+import Navbar from "../components/LandingPage/NavBar/Navbar";
+import ConnectMetaMaskSection from "../components/LandingPage/ConnectWalletPage";
 const Playgame = () => {
   return (
     <div>
